@@ -157,13 +157,13 @@ def train_model():
 
     for number in range(10):
         for pic_index in range(256):
-            current = load_img(f"new_trained/{number}/{pic_index}.jpg")
+            current = load_img(f'new_trained/{number}/{pic_index}.jpg')
             lst_img.append(current)
             lst_label.append(np.uint8(number))
 
     for number in range(10):
         for pic_index in range(100):
-            current = load_img(f"Trained/{number}/{pic_index}.jpg")
+            current = load_img(f'Trained/{number}/{pic_index}.jpg')
             lst_img.append(current)
             lst_label.append(np.uint8(number))
 
@@ -186,13 +186,13 @@ def train_model():
     )
 
     model.fit(all_img, all_label, epochs=512)
-    model.save("my_model")
+    model.save('my_model')
 
     test_loss, test_accuracy = model.evaluate(test_img, test_label)
     predictions = model.predict(test_img)
 
 
-def get_results(img_name="tmp_img.jpg"):
+def get_results(img_name):
     full_img = load_img(img_name)
     digits = list(split_img(full_img))
 
